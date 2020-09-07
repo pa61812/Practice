@@ -1,0 +1,65 @@
+﻿<div class="container">
+    <BR />
+    <div>
+        <p>帳號:<input type="text" id="UserID" /></p>
+    </div>
+    <div>
+        <p>密碼:<input type="text" id="Pass" /></p>
+    </div>
+    <div>
+        <p>姓名:<input type="text" id="CName" /></p>
+    </div>
+    <div>
+        <p>手機:<input type="text" id="Phone" /></p>
+    </div>
+    <div>
+        <p>電話:<input type="text" id="Tel" /></p>
+    </div>
+    <div>
+        <p> 性別:<input type="text" id="Gender" /></p>
+    </div>
+    <div>
+        <p>生日:<input type="text" id="Birth" /></p>
+    </div>
+
+    <div>
+        <input type="button" id="Registered" value="註冊" />
+    </div>
+</div>
+@section Scripts{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Registered").click(function () {
+                //debugger;
+                $.ajax({
+                    url: '/Home/Registered',
+                    type: 'Post',
+     
+                    data: {
+                        UserID: $("#UserID").val()
+                        , Pass: $("#Pass").val()
+                        , CName: $("#CName").val()
+                        , Phone: $("#Phone").val()
+                        , Tel: $("#Tel").val()
+                        , Gender: $("#Gender").val()
+                        , Birth: $("#Birth").val()
+
+                    },
+                    tradition: true,
+                    error: function (xhr) {
+
+                        result = false;
+                    },
+                    success: function (data) {
+                        alert(data);
+                        result = true;
+                    }
+                });
+
+
+            })
+
+        });
+    </script>
+}

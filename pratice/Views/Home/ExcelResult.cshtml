@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "ExcelResult";
+}
+
+<h2>ExcelResult</h2>
+
+<div>
+
+    @using (Html.BeginForm("import", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input name="file" type="file" id="file" />
+        <input name="submit" type="submit" value="批次新增" />
+    }
+</div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("input[name$='submit']").click(function () {
+                var q =@ViewBag.result;
+                 if (q != "") {
+                     alert(q);
+                  }
+
+            
+            })
+        })
+    </script>
+
+
+}

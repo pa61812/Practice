@@ -1,0 +1,58 @@
+﻿@*@model IEnumerable<pratice.Models.Member>
+
+
+    @foreach (var item in Model)
+    {
+
+        <div>@item.Account</div>
+
+
+    }*@
+@model pratice.Models.Animal
+
+<h1>@Model.AnimalID</h1>
+<h1>@Model.AnimalName</h1>
+
+<select name="pets" id="pet">
+    <option value="">請選擇你最愛的寵物</option>
+    <option value="dog">Dog</option>
+    <option value="cat" selected>Cat</option>
+    <option value="hamster">Hamster</option>
+    <option value="parrot">Parrot</option>
+    <option value="spider" disabled>Spider</option>
+    <option value="goldfish">Goldfish</option>
+</select>
+
+
+
+<input type="button" id="test" value="test" />
+
+<input type="button" id="try" value="try" />
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            window.onload = function () {
+               // $("#pet").attr("value", "11");
+
+                $("#pet").val(@Model.AnimalName)
+            }
+
+            $("#try").click(function () {
+
+
+                top.location.href = '/home/Contact/'
+            })
+
+            $("#test").click(function (){
+
+
+                top.location.href = '/home/About/'
+        })
+
+
+
+        })
+
+    </script>
+}
